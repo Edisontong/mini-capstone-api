@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
   def single_product
-    p hello
+    @product = Product.first
+    render template: "products/show"
   end
 
   def all_products
-    render json: {}
+    @products = Product.all
+    render template: "products/index"
   end
 end
