@@ -8,5 +8,6 @@ json.tax product.tax
 json.total product.total
 json.top_seller product.top_seller
 json.inventory_count product.inventory_count
+json.supplier product.supplier
 json.created_at product.created_at
 json.updated_at product.updated_at
