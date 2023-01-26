@@ -5,9 +5,11 @@ one:
   price: 1
   description: testdescription1
   inventory_count: 1
+  supplier: one
 
 two:
   name: teststring2
   price: 1
   description: testdescription2
   inventory_count: 1
+  supplier: one

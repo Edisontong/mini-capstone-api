@@ -14,9 +14,14 @@ class ProductsController < ApplicationController
       name: params["name"],
       price: params["price"],
       description: params["description"],
+      inventory_count: params["inventory_count"],
+      supplier_id: params["supplier"],
     )
     if @product.valid?
-      render :show
+      if params[:image_url]
+        Image.create(url: params[:images_url], product_id: @product.id)
+        render :show
+      end
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
     end
@@ -28,6 +33,7 @@ class ProductsController < ApplicationController
       name: params["name"] || @product.name,
       price: params["price"] || @product.price,
       description: params["description"] || @product.description,
+      supplier_id: params["supplier_id"] || @product.supplier_id,
     )
     if @product.valid?
       render :show
