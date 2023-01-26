@@ -3,11 +3,11 @@
 one:
   name: teststring1
   price: 1
-  image_url: testimage1
   description: testdescription1
+  inventory_count: 1
 
 two:
   name: teststring2
   price: 1
-  image_url: testimage1
   description: testdescription2
+  inventory_count: 1

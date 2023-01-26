@@ -11,16 +11,16 @@ suppplier3 = Supplier.create!(
 
 Product.destroy_all
 product1 = Product.create!(
-  { name: "race car", price: "1.5", description: "a car that goes really fast", top_seller: true, inventory_count: 100, supplier_id: "1" }
+  { name: "race car", price: "1.5", description: "a car that goes really fast", top_seller: true, inventory_count: 100, supplier_id: supplier1.id }
 )
 product2 = Product.create!(
-  { name: "dinosaur", price: "2.0", description: "a small plastic dinosaur figure.", top_seller: true, inventory_count: 50, supplier_id: "1" }
+  { name: "dinosaur", price: "2.0", description: "a small plastic dinosaur figure.", top_seller: true, inventory_count: 50, supplier_id: supplier1.id }
 )
 product3 = Product.create!(
-  { name: "bouncy ball", price: "0.5", description: "a ball that bounces", top_seller: true, inventory_count: 300, supplier_id: "1" }
+  { name: "bouncy ball", price: "0.5", description: "a ball that bounces", top_seller: true, inventory_count: 300, supplier_id: supplier2.id }
 )
 product4 = Product.create!(
-  { name: "test", price: "20.0", description: "happy birthday to me", top_seller: true, inventory_count: 2000, supplier_id: "2" },
+  { name: "test", price: "20.0", description: "happy birthday to me", top_seller: true, inventory_count: 2000, supplier_id: supplier2.id },
 )
 
 Image.destroy_all
