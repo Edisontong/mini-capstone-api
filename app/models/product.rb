@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  belongs_to :order
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, length: { in: 10..500 }
