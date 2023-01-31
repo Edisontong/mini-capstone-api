@@ -1,15 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: teststring1
+  name: TestProduct1
   price: 1
-  description: testdescription1
-  inventory_count: 1
+  description: TestProductDescription
+  quantity: 1
   supplier: one
 
 two:
-  name: teststring2
+  name: TestProduct2
   price: 1
-  description: testdescription2
-  inventory_count: 1
-  supplier: one
+  description: TestProductDescription
+  quantity: 1
+  supplier: two
+
+three:
+  name: TestProduct3
+  price: 1
+  description: TestProductDescription
+  quantity: 1
+  supplier: two

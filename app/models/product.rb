@@ -1,16 +1,16 @@
 class Product < ApplicationRecord
   belongs_to :supplier
-  belongs_to :order
-  validates :name, presence: true, uniqueness: true
-  validates :price, presence: true, numericality: { greater_than: 0 }
+  has_many :orders
+  # validates :supplier_id, presence: true
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: { greater_than: 0 }
+  validates :description, presence: true
   validates :description, length: { in: 10..500 }
 
   def is_discounted?
-    if price <= 10
-      true
-    else
-      false
-    end
+    price <= 10
   end
 
   def tax

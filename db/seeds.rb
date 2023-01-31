@@ -1,45 +1,21 @@
-Supplier.destroy_all
-supplier1 = Supplier.create!(
-  { name: "test", email: "test@gmail.com", phone_number: "111-222-3333" }
-)
-supplier2 = Supplier.create!(
-  { name: "test2", email: "test2@gmail.com", phone_number: "999-555-7777" }
-)
-suppplier3 = Supplier.create!(
-  { name: "httpie", email: "httpie@server.com", phone_number: "333-444-5555" }
-)
+supplier1 = Supplier.create!(name: "Amazon", email: "amazon@email.com", phone_number: "123-123-1234")
+supplier2 = Supplier.create!(name: "ThinkGeek", email: "thinkgeek@email.com", phone_number: "123-123-1235")
 
-Product.destroy_all
-product1 = Product.create!(
-  { name: "race car", price: "1.5", description: "a car that goes really fast", top_seller: true, inventory_count: 100, supplier_id: supplier1.id }
-)
-product2 = Product.create!(
-  { name: "dinosaur", price: "2.0", description: "a small plastic dinosaur figure.", top_seller: true, inventory_count: 50, supplier_id: supplier1.id }
-)
-product3 = Product.create!(
-  { name: "bouncy ball", price: "0.5", description: "a ball that bounces", top_seller: true, inventory_count: 300, supplier_id: supplier2.id }
-)
-product4 = Product.create!(
-  { name: "test", price: "20.0", description: "happy birthday to me", top_seller: true, inventory_count: 2000, supplier_id: supplier2.id },
-)
+product = Product.create!({ name: "Sonic Screwdriver", price: "9.0", description: "The Doctor's sciencey magic wand to get out of tight spots. Note: does not work on wood", quantity: 2, supplier_id: supplier2.id })
+Image.create!(url: "https://sketchfab.com/blogs/community/wp-content/uploads/2020/04/image2-2.jpg", product_id: product.id)
 
-Image.destroy_all
-Image.create!(
-  url: "image_number_1.com", product_id: product1.id,
-)
-Image.create!(
-  url: "image_number_2.com", product_id: product1.id,
-)
-Image.create!(
-  url: "image_number_3.com", product_id: product1.id,
-)
+product = Product.create!({ name: "DnD Dice set", price: "57.0", description: "Take down mighty dragons with this timeless set of 20 sided wonders", quantity: 6, supplier_id: supplier1.id })
+Image.create!(url: "https://s-media-cache-ak0.pinimg.com/736x/9c/15/7b/9c157bea5331463f9c539cbce739a4b8.jpg", product_id: product.id)
 
-User.destroy_all
-User.create!(
-  name: "test", email: "test@test.com", password: "password", password_confirmation: "password",
-)
+product = Product.create!({ name: "Space Cowboy Laser Gun", price: "170.0", description: "This weapon has no other description than, Shiney!", quantity: 3, supplier_id: supplier1.id })
+Image.create!(url: "http://cdn.shopify.com/s/files/1/0289/1534/products/MalPistol_MP-1_1756x988_e53f9448-81ec-41de-9369-4cbad64f18f5_1024x1024.jpg?v=1401915776", product_id: product.id)
 
-Order.destroy_all
-Order.create!(
-  user_id: 1, product_id: 1, quantity: 10, subtotal: .1, tax: 0.1, total: 1.2,
-)
+product = Product.create!({ name: "Hitchhiker's Guide to the Galaxy", price: "42.0", description: "It is slightly cheaper; and secondly it has the words DON'T PANIC inscribed in large friendly letters on its cover.", quantity: 4, supplier_id: supplier1.id })
+Image.create!(url: "http://www.notcot.com/images/guide.gif", product_id: product.id)
+
+product = Product.create!({ name: "WNYX Mug", price: "2.0", description: "Get your morning news once you wake up with a cup of joe from... well Joe. He made it with his homemade duct tape", quantity: 1, supplier_id: supplier1.id })
+Image.create!(url: "https://i.pinimg.com/236x/14/4a/0b/144a0bffe37f29f414e2dae2bd0141cf.jpg", product_id: product.id)
+
+product = Product.create!({ name: "Yoda sleeping bag", price: "40.0", description: "For real it'ss yoda my guy", quantity: 1, supplier_id: supplier2.id })
+Image.create!(url: "https://staticdelivery.nexusmods.com/mods/1151/images/12353-0-1461721930.png", product_id: product.id)
+Image.create(url: "https://i.ebayimg.com/images/g/J08AAOSwTMpgnJ9o/s-l1600.jpg", product_id: product.id)
