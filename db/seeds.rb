@@ -33,3 +33,13 @@ Image.create!(
 Image.create!(
   url: "image_number_3.com", product_id: product1.id,
 )
+
+User.destroy_all
+User.create!(
+  name: "test", email: "test@test.com", password: "password", password_confirmation: "password",
+)
+
+Order.destroy_all
+Order.create!(
+  user_id: 1, product_id: 1, quantity: 10, subtotal: .1, tax: 0.1, total: 1.2,
+)
