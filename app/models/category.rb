@@ -1,7 +1,12 @@
 class Category < ApplicationRecord
-  has_many :categoryproducts
+  has_many :category_products
+  has_many :products, through: :category_products
 
-  def products
-    @products = Product.find_by(id: category_id)
-  end
+
+  #line three does this=>
+  # def products
+  #   category_products.map do |category_product|
+  #     category_product.product
+  #   end
+  # end
 end

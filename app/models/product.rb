@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :supplier
   has_many :orders
-  has_many :categoryproducts
+  has_many :category_products
+  has_many :categories, through: :category_products
   # validates :supplier_id, presence: true
   validates :name, presence: true
   validates :name, uniqueness: true
@@ -29,4 +30,11 @@ class Product < ApplicationRecord
   def images
     Image.where(product_id: id)
   end
+
+  # line 5 does this=>
+  # def categories
+  #   category_product.map do |category_product|
+  #     category_product.category
+  #   end
+  # end
 end
