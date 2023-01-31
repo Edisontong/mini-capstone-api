@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_31_175218) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_31_185224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,8 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_175218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "top_seller", default: true
-    t.integer "inventory_count"
     t.string "supplier_id"
+    t.integer "quantity"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_175218) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admim", default: false
+    t.boolean "admin"
   end
 
 end
