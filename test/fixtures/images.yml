@@ -2,8 +2,8 @@
 
 one:
   url: MyString
-  product_id: 1
+  product: one
 
 two:
   url: MyString
-  product_id: 1
+  product: two
