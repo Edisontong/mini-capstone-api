@@ -3,7 +3,7 @@
 one:
   quantity: 1
   product_id: 1
-  user: one
+  user_id: one
   subtotal: 9.99
   tax: 9.99
   total: 9.99
@@ -11,7 +11,7 @@ one:
 two:
   quantity: 1
   product_id: 1
-  user: two
+  user_id: two
   subtotal: 9.99
   tax: 9.99
   total: 9.99
