@@ -1,6 +1,6 @@
 class CartedProductsController < ApplicationController
   def index
-    @carted_products = current_user.carted_products
+    @carted_products = current_user.carted_products.where(status: "carted")
     render :index
   end
 
