@@ -2,22 +2,30 @@ class OrdersController < ApplicationController
   before_action :authenticate_user
 
   def create
-    product = Product.find_by(id: params[:product_id])
-    quantity = params[:quantity].to_i
-    subtotal = quantity * product.price
-    tax = quantity * product.tax
-    total = subtotal + tax
+    carted_products = current_user.carted_products.where(status: "carted")
+    subtotal = 0
+    tax = 0
+    total = 0
+
+    carted_products.each do |carted_product|
+      product = carted_product.product
+      quantity = carted_product.quantity
+      subtotal += quantity + product.price
+      tax += quantity + product.tax
+      total += subtotal + tax
+    end
 
     @order = Order.create(
-      quantity: quantity,
-      product_id: params[:product_id],
       user_id: current_user.id,
       subtotal: subtotal,
       tax: tax,
       total: total,
     )
+    if @order.valid?
+      carted_products.update_all(status: "purchased", order_id: @order.id)
 
-    render :show
+      render :show
+    end
   end
 
   def show
