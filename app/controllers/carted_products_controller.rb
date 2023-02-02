@@ -1,6 +1,6 @@
 class CartedProductsController < ApplicationController
   def index
-    @carted_product = CartedProduct.all
+    @carted_products = current_user.carted_products
     render :index
   end
 
