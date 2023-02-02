@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
     carted_products.each do |carted_product|
       product = carted_product.product
       quantity = carted_product.quantity
-      subtotal += quantity + product.price
-      tax += quantity + product.tax
+      subtotal += quantity * product.price
+      tax += quantity * product.tax
       total += subtotal + tax
     end
 
@@ -21,11 +21,12 @@ class OrdersController < ApplicationController
       tax: tax,
       total: total,
     )
+
     if @order.valid?
       carted_products.update_all(status: "purchased", order_id: @order.id)
-
-      render :show
     end
+
+    render :show
   end
 
   def show
