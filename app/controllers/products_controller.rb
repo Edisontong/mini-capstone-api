@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
     if params[:category]
-      @products = Category.find_by(name: params[:category]).products
-      @pro
-    else
-      render :index
+      category = Category.find_by(name: params[:category])
+      @products = category.products
     end
+    render :index
   end
 
   def create
