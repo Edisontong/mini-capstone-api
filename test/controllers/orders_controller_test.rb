@@ -11,24 +11,25 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       data = JSON.parse(response.body)
       @jwt = data["jwt"]
     end
-  
+
     test "index" do
       get "/orders.json", headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 200
     end
-  
+
     test "create" do
       assert_difference "Order.count", 1 do
         post "/orders.json", headers: { "Authorization" => "Bearer #{@jwt}" }
         assert_response 200
       end
     end
-  
+
     test "show" do
       get "/orders/#{@order.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 200
-  
+
       data = JSON.parse(response.body)
       assert_equal ["id", "subtotal", "tax", "total", "carted_products", "created_at", "updated_at"], data.keys
     end
   end
+end
